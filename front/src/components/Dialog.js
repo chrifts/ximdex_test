@@ -64,7 +64,7 @@ function FormDialog({dispatch}) {
             />
             <TextField
                 onKeyUpCapture={writeText}
-                label="Multiline"
+                label="Text"
                 multiline
                 margin="dense"
                 fullWidth

@@ -11,7 +11,7 @@ class ProfitCalculator {
 	}
 	public function csv_to_array($filename='', $delimiter=','): array {
 		if(!file_exists($filename) || !is_readable($filename))
-			return FALSE;
+			throw new Exception("The CSV doesn't exists, or isn't readable", 1);
 		
 		$header = NULL;
 		$data = array();
@@ -81,7 +81,7 @@ class ProfitCalculator {
 				$result[$row['CATEGORY']] = $parsed;
 			}
 			$i++;
-		}
+		}		
 		return json_encode($result);
 	}
 	public function parseNum(string $str): float {
