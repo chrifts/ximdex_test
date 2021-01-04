@@ -5,12 +5,19 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === 'ADD_TEXT') {
-    return Object.assign({}, state, {
-        texts: state.texts.concat(action.payload)
-    })
+  switch (action.type) {
+    case 'ADD_TEXT': {
+      return {
+        ...state,
+        texts: [
+          ...state.texts,
+          action.payload
+        ]
+      }
+    }
+    default:
+      break;
   }
-
   return state
 }
 
